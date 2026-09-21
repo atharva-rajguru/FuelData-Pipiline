@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: nsw_fuel_raw
+    database: awsdatacatalog
+    schema: new_data_catalog
+    tables:
+      - name: static_prices_data_all   
+      - name: static_stations_data_all
+      - name: updated_prices_data
+      - name: updated_stations_data_all
