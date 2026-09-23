@@ -3,6 +3,8 @@ from airflow.sdk import dag, task
 from airflow.operators.bash import BashOperator
 import sys
 import os
+import pendulum
+local_tz = pendulum.timezone("Australia/Sydney")
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -12,7 +14,8 @@ DBT_PROJECT_PATH = os.path.abspath(
 
 @dag(
     dag_id="powerbi_dag",
-    schedule="58 23 * * *", # Example: Har 2 ghante mein ek baar chalega (ya '0 0 * * *' daily)
+    schedule="58 23 * * *",
+    timezone=local_tz,
     start_date=datetime(2026, 1, 1),
     catchup=False,
     dagrun_timeout=timedelta(minutes=5),
