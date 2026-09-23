@@ -15,8 +15,7 @@ DBT_PROJECT_PATH = os.path.abspath(
 @dag(
     dag_id="powerbi_dag",
     schedule="58 23 * * *",
-    timezone=local_tz,
-    start_date=datetime(2026, 1, 1),
+    start_date=pendulum.datetime(2026, 1, 1, tz=local_tz)
     catchup=False,
     dagrun_timeout=timedelta(minutes=5),
 )
