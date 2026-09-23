@@ -14,26 +14,6 @@ Environment & Package Management: uv for fast dependency resolution and clean en
 
 Version Control: Git & GitHub
 
-📂 Project Structure
-Plaintext
-├── dags/                     # Airflow DAG scripts for daily orchestration and API retrieval
-│   ├── fuel_pipeline_dag.py
-│   ├── incremental_dag.py
-│   └── scripts/              # Python helper scripts for API calls and S3 uploads
-├── dbt_transforms/           # dbt project directory (Medallion Architecture)
-│   └── fuel_pipeline_dbt/
-│       ├── models/
-│       │   ├── bronze/       # Raw data ingestion layers
-│       │   ├── silver/       # Cleaned, standardized data models
-│       │   └── gold/         # Aggregated business-level summary models
-│       ├── dbt_project.yml
-│       └── profiles.yaml
-├── uv.lock                   # Dependency lock file managed by uv
-├── .gitignore                # Excludes sensitive data, virtual environments, and temp files
-└── README.md
-🔄 Pipeline Workflow
-Ingestion: Airflow triggers daily Python scripts to fetch live fuel price feeds via API.
-
 Storage: Raw data files are pushed securely to AWS S3.
 
 Transformation (Medallion Architecture):
@@ -48,7 +28,7 @@ Gold Layer: Fully aggregated analytical tables (gold_station_summary, gold_stati
 Clone the Repository:
 
 Bash
-git clone https://github.com/your-username/nsw-fuel-price-pipeline.git
+git clone https://github.com/atharva-rajguru/FuelData-Pipiline.git
 cd nsw-fuel-price-pipeline
 Configure Environment:
 Set up your environment variables (.env) for AWS credentials and Airflow configurations (ensure .env is kept out of version control).
